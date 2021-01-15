@@ -36,19 +36,16 @@
 // const data = fs.readFileSync('myfile.txt');
 // console.log(data.toString()); 
 
-const EventEmitter = require('events');
+const School = require('./school');
 
-const emitter = new EventEmitter();
+const school = new School();
+
+
 
 // register a listener for bellRing event
-emitter.on('bellRing', () => {
-    console.log('We need to run!');
+school.on('bellRing', ({ period, text }) => {
+    console.log(`We need to run because ${period} ${text}`);
 });
 
+school.startPeriod();
 
-// raise an event
-setTimeout(() => {
-   emitter.emit('bellRing');
-}, 2000);
-
-emitter.emit('bellRing');
