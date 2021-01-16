@@ -36,16 +36,23 @@
 // const data = fs.readFileSync('myfile.txt');
 // console.log(data.toString()); 
 
-const School = require('./school');
+// const School = require('./school');
 
-const school = new School();
+// const school = new School();
 
 
 
 // register a listener for bellRing event
-school.on('bellRing', ({ period, text }) => {
-    console.log(`We need to run because ${period} ${text}`);
+// school.on('bellRing', ({ period, text }) => {
+//     console.log(`We need to run because ${period} ${text}`);
+// });
+
+// school.startPeriod();
+
+const fs = request('fs');
+
+const ourReadStream = fs.createReadStream(`${__dirname}/bigdata.txt`, 'utf8');
+
+ourReadStream.on('data', (data) => {
+    console.log(data);
 });
-
-school.startPeriod();
-
