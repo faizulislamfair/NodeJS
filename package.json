@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "ejs": "^3.1.6",
     "express": "^4.17.1",
     "lodash": "^4.17.20",
     "react": "^17.0.1"
@@ -9,5 +10,25 @@
     "eslint-config-prettier": "^7.1.0",
     "eslint-plugin-prettier": "^3.3.1",
     "prettier": "^2.2.1"
-  }
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "nodejs",
+  "description": "Yup, don't judge a book by its movie!",
+  "version": "1.0.0",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/faizulislamfair/NodeJS.git"
+  },
+  "keywords": [
+    "ravenchist"
+  ],
+  "author": "me",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/faizulislamfair/NodeJS/issues"
+  },
+  "homepage": "https://github.com/faizulislamfair/NodeJS#readme"
 }
