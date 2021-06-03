@@ -14,10 +14,12 @@
 
 // console.log(os.type())
 
-const car = {
-    brand: "BMW",
-    model: "Z4"
-}
+// const car = {
+//     brand: "BMW",
+//     model: "Z4"
+// }
 
-module.exports = car;
+// module.exports = car;
+
+const lodash = require('lodash');
 
