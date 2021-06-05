@@ -21,5 +21,4 @@
 
 // module.exports = car;
 
-const lodash = require('lodash');
-
+// const lodash = require('lodash');
