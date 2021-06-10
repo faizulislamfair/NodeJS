@@ -28,14 +28,32 @@
 /**             Event Loop               */
 
 
-const bar = () => console.log('bar')
+// const bar = () => console.log('bar')
 
-const baz = () => console.log('baz')
+// const baz = () => console.log('baz')
 
-const foo = () =>{
-    console.log('foo')
-    setTimeout(bar, 1000)
-    baz()
+// const foo = () =>{
+//     console.log('foo')
+//     setTimeout(bar, 1000)
+//     baz()
+// }
+
+// foo()
+
+
+
+/**             Callback            */
+
+
+function getMessage(msg, callback){
+    setTimeout(() => {
+       console.log(msg)
+       callback() 
+    }, 1000)
 }
 
-foo()
+function DisplayMessage(){
+    console.log('Display Message')
+}
+
+getMessage("Get Message", () => console.log("Display Msg"))
