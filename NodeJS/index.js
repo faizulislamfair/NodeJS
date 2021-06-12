@@ -45,15 +45,42 @@
 /**             Callback            */
 
 
-function getMessage(msg, callback){
-    setTimeout(() => {
-       console.log(msg)
-       callback() 
-    }, 1000)
+// function getMessage(msg, callback){
+//     setTimeout(() => {
+//        console.log(msg)
+//        callback() 
+//     }, 1000)
+// }
+
+// function DisplayMessage(){
+//     console.log('Display Message')
+// }
+
+// getMessage("Get Message", () => console.log("Display Msg"))
+
+
+
+
+                              /**                Promises               */
+
+
+// let promise = new Promise(function(resolve,reject){
+//     setTimeout(()=>reject(new Error("Whoops")), 1000)
+// });
+
+let promise = new Promise(function(resolve,reject){
+    setTimeout(()=>resolve("Run Before"), 1000)
+});
+
+promise.then(
+    result => {
+        console.log(result)
+        GetAfer()
+    },
+    error => console.log(error)
+)
+
+function GetAfer(){
+    console.log("Print After");
 }
 
-function DisplayMessage(){
-    console.log('Display Message')
-}
-
-getMessage("Get Message", () => console.log("Display Msg"))
