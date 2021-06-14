@@ -68,19 +68,38 @@
 //     setTimeout(()=>reject(new Error("Whoops")), 1000)
 // });
 
-let promise = new Promise(function(resolve,reject){
-    setTimeout(()=>resolve("Run Before"), 1000)
-});
+// let promise = new Promise(function(resolve,reject){
+//     setTimeout(()=>resolve("Run Before"), 1000)
+// });
 
-promise.then(
-    result => {
-        console.log(result)
-        GetAfer()
-    },
-    error => console.log(error)
-)
+// promise.then(
+//     result => {
+//         console.log(result)
+//         GetAfer()
+//     },
+//     error => console.log(error)
+// )
 
-function GetAfer(){
-    console.log("Print After");
+// function GetAfer(){
+//     console.log("Print After");
+// }
+
+
+
+/**            Async and Await          */
+
+
+function metal(){
+    return new Promise(resolve => {
+        setTimeout(()=>{
+            resolve('lmao')
+        },2000)
+    })
 }
 
+async function msg(){
+    const msg = await metal()
+    console.log("Message: ",msg)
+}
+
+msg()
