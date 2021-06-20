@@ -127,21 +127,65 @@
 
 
 
-/**              HTTP Request                */
+/**              HTTP GET Request                */
 
-const http = require("http")
+// const http = require("http")
 
-http.get('http://api.open-notify.org/astros.json', resp => {
-    let data = '';
-     resp.on('data', chunk => {
-         data += chunk
-     });
+// http.get('http://api.open-notify.org/astros.json', resp => {
+//     let data = '';
+//      resp.on('data', chunk => {
+//          data += chunk
+//      });
 
-     resp.on('end', ()=>{
-         let jsondata = JSON.parse(data)
-         console.log(jsondata)
-     })
+//      resp.on('end', ()=>{
+//          let jsondata = JSON.parse(data)
+//          console.log(jsondata)
+//      })
+// })
+
+
+
+
+/**            HTTP POST Request              */
+
+const axios = require('axios')
+
+const data = JSON.stringify({
+    name:"Panda buddy",
+    Job:'Content Writer'
+});
+
+// const options = {
+//     hostname: 'reqres.in',
+//     path: '/api/users',
+//     method: 'POST',
+//     header:{
+//         'Content-Type':'application/json'
+//     }
+// }
+
+axios.post('https://reqres.in/api/users',data).then(res => {
+    console.log(`Status Code:${res.status}`);
+    console.log(`Body: ${res.data}`);
+}).catch(err => {
+    console.log(err)
 })
 
 
+// request
+// const req = http.request(options, (res) => {
+//     let data = '';
+//     console.log("Status Code:", res.statusCode)
+
+//     res.on('data', (chunk)=>{
+//          data+=chunk;
+//     })
+
+//     res.on('end', ()=>{
+//         console.log("Body:", JSON.parse(data));
+//     })
+// })
+
+// req.write(data)
+// req.end();
 
