@@ -148,12 +148,12 @@
 
 /**            HTTP POST Request              */
 
-const axios = require('axios')
+// const axios = require('axios')
 
-const data = JSON.stringify({
-    name:"Panda buddy",
-    Job:'Content Writer'
-});
+// const data = JSON.stringify({
+//     name:"Panda buddy",
+//     Job:'Content Writer'
+// });
 
 // const options = {
 //     hostname: 'reqres.in',
@@ -164,12 +164,12 @@ const data = JSON.stringify({
 //     }
 // }
 
-axios.post('https://reqres.in/api/users',data).then(res => {
-    console.log(`Status Code:${res.status}`);
-    console.log(`Body: ${res.data}`);
-}).catch(err => {
-    console.log(err)
-})
+// axios.post('https://reqres.in/api/users',data).then(res => {
+//     console.log(`Status Code:${res.status}`);
+//     console.log(`Body: ${res.data}`);
+// }).catch(err => {
+//     console.log(err)
+// })
 
 
 // request
@@ -189,3 +189,30 @@ axios.post('https://reqres.in/api/users',data).then(res => {
 // req.write(data)
 // req.end();
 
+
+
+/**           Working with Files          */
+
+const fs = require("fs");   // Asynchronous way
+
+fs.readFile("panda.txt", 'utf-8', (err, data)=>{
+    if(err) throw err;
+    console.log(data)
+})
+
+const data = fs.readFileSync('panda.txt', { encoding: 'utf-8', flag:'r'});  // Synchronous way
+
+console.log(data);
+
+fs.stat('panda.txt', (err, stats)=>{
+   if(err){
+       console.error(err);
+       return
+   }
+
+   console.log(stats.isFile())
+   console.log(stats.isDirectory())
+   console.log(stats.isSymbolicLink())
+   console.log(stats.size)
+
+})
