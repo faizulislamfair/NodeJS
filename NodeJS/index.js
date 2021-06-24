@@ -193,26 +193,63 @@
 
 /**           Working with Files          */
 
-const fs = require("fs");   // Asynchronous way
+// const fs = require("fs");   // Asynchronous way
 
-fs.readFile("panda.txt", 'utf-8', (err, data)=>{
-    if(err) throw err;
-    console.log(data)
-})
+// fs.readFile("panda.txt", 'utf-8', (err, data)=>{
+//     if(err) throw err;
+//     console.log(data)
+// })
 
-const data = fs.readFileSync('panda.txt', { encoding: 'utf-8', flag:'r'});  // Synchronous way
+// const data = fs.readFileSync('panda.txt', { encoding: 'utf-8', flag:'r'});  // Synchronous way
 
-console.log(data);
+// console.log(data);
 
-fs.stat('panda.txt', (err, stats)=>{
-   if(err){
-       console.error(err);
-       return
-   }
+// fs.stat('panda.txt', (err, stats)=>{
+//    if(err){
+//        console.error(err);
+//        return
+//    }
 
-   console.log(stats.isFile())
-   console.log(stats.isDirectory())
-   console.log(stats.isSymbolicLink())
-   console.log(stats.size)
+//    console.log(stats.isFile())
+//    console.log(stats.isDirectory())
+//    console.log(stats.isSymbolicLink())
+//    console.log(stats.size)
 
+// })
+
+
+/**           Writing & Updating File         */
+
+// fs.writeFile()  // Async
+// fs.readFile()
+// fs.unlink()
+
+// fs.writeFileSync() // Sync
+// fs.readFileSync()
+// fs.unlinkSync()
+
+const fs = require('fs');
+
+// const content = [{
+//     type: "Node Application"
+// }]
+
+// fs.writeFileSync('panda.json', JSON.stringify(content));
+
+const content = "Panda+ Application";
+
+// fs.writeFile('panda.txt', content, { flag: 'w+'}, err => {
+//     if(err){
+//         console.log(err);
+//         return
+//     }
+//     console.log("Successfully Done!")
+// })
+
+fs.unlink('panda.txt', err => {
+    if(err){
+        console.log(err)
+        return
+    }
+    console.log('File Removed');
 })
