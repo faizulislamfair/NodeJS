@@ -1,5 +1,7 @@
 //console.log("Node App")
 
+// const { response } = require("express");
+
 // const a = 5
 // const b = 10
 //console.log(a,b)
@@ -228,7 +230,7 @@
 // fs.readFileSync()
 // fs.unlinkSync()
 
-const fs = require('fs');
+// const fs = require('fs');
 
 // const content = [{
 //     type: "Node Application"
@@ -236,7 +238,7 @@ const fs = require('fs');
 
 // fs.writeFileSync('panda.json', JSON.stringify(content));
 
-const content = "Panda+ Application";
+// const content = "Panda+ Application";
 
 // fs.writeFile('panda.txt', content, { flag: 'w+'}, err => {
 //     if(err){
@@ -246,10 +248,56 @@ const content = "Panda+ Application";
 //     console.log("Successfully Done!")
 // })
 
-fs.unlink('panda.txt', err => {
-    if(err){
-        console.log(err)
-        return
+// fs.unlink('panda.txt', err => {
+//     if(err){
+//         console.log(err)
+//         return
+//     }
+//     console.log('File Removed');
+// })
+
+
+/**                Routing                 */
+
+// Performing tasks on a particular path is called routing
+
+// if(request.url == "example/path/here"){
+//     response()
+// }
+
+const http = require("http");
+
+const routes = {
+    '/':function index(request, response){
+        response.writeHead(200);
+        response.end("Node Routing");
+    },
+    '/aboutus':function aboutus(request, response){
+        response.end("This is Panda Buddy");
     }
-    console.log('File Removed');
-})
+}
+
+// function index(request, response){
+//     response.writeHead(200);
+//     response.end("Node Routing");
+// }
+
+// function aboutus(request, response){
+//     response.end("This is Panda Buddy");
+// }
+
+// http.createServer(function(req, res){
+//     if(req.url == '/'){
+//         return index(req, res);
+//     }
+//     if(req.url = '/aboutus'){
+//         return aboutus(req, res);
+//     }
+// }).listen(8000);
+
+
+http.createServer(function(req, res){
+    if(req.url in routes){
+        return routes[req.url](req.res);
+    }
+}).listen(process.env.PORT || 8000);
