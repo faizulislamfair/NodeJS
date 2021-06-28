@@ -265,17 +265,17 @@
 //     response()
 // }
 
-const http = require("http");
+// const http = require("http");
 
-const routes = {
-    '/':function index(request, response){
-        response.writeHead(200);
-        response.end("Node Routing");
-    },
-    '/aboutus':function aboutus(request, response){
-        response.end("This is Panda Buddy");
-    }
-}
+// const routes = {
+//     '/':function index(request, response){
+//         response.writeHead(200);
+//         response.end("Node Routing");
+//     },
+//     '/aboutus':function aboutus(request, response){
+//         response.end("This is Panda Buddy");
+//     }
+// }
 
 // function index(request, response){
 //     response.writeHead(200);
@@ -296,8 +296,28 @@ const routes = {
 // }).listen(8000);
 
 
-http.createServer(function(req, res){
-    if(req.url in routes){
-        return routes[req.url](req.res);
-    }
-}).listen(process.env.PORT || 8000);
+// http.createServer(function(req, res){
+//     if(req.url in routes){
+//         return routes[req.url](req.res);
+//     }
+// }).listen(process.env.PORT || 8000);
+
+
+
+/**               Path Module            */
+
+const path = require("path");
+
+//file = path.basename('test.json'); to get filename from path
+
+//file = path.dirname('NodeJS/NodeJS/test.json'); to get the directory name
+
+// file = path.isAbsolute('C:/Users/S.M. FAIR/Desktop/NodeJS/NodeJS'); the slash is reverse compared to that in pc
+
+// let dir = "NodeJS"
+// file = path.join('C:','Users/S.M. FAIR/Desktop/NodeJS',dir,'test.json');
+//file = path.parse('NodeJS/test.json'); // returns different segment of the path
+
+// file = path.resolve('/NodeJS','test.json'); // returns the absolute path
+
+console.log(file)
