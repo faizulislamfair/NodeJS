@@ -304,9 +304,9 @@
 
 
 
-/**               Path Module            */
+/**               Path Module            **/
 
-const path = require("path");
+// const path = require("path");
 
 //file = path.basename('test.json'); to get filename from path
 
@@ -320,4 +320,27 @@ const path = require("path");
 
 // file = path.resolve('/NodeJS','test.json'); // returns the absolute path
 
-console.log(file)
+// console.log(file)
+
+
+/**        Event  Module            **/
+
+
+const events = require("events");
+
+let ev = new events.EventEmitter();
+
+// ev.on('my_event', function(data){
+//     console.log("Event:", data);
+// })
+
+// ev.emit('my_event', "England beat Germany tonight");
+
+// ev.once('eventOnce', ()=> console.log("England beat Germany tonight"));
+
+ev.once('eventOnce', (code, msg)=> console.log(`England beat ${msg} by ${code} Goals`));
+
+ev.emit('eventOnce',2,'Germany');
+
+
+
