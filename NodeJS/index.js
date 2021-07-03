@@ -326,9 +326,9 @@
 /**        Event  Module            **/
 
 
-const events = require("events");
+// const events = require("events");
 
-let ev = new events.EventEmitter();
+// let ev = new events.EventEmitter();
 
 // ev.on('my_event', function(data){
 //     console.log("Event:", data);
@@ -338,9 +338,26 @@ let ev = new events.EventEmitter();
 
 // ev.once('eventOnce', ()=> console.log("England beat Germany tonight"));
 
-ev.once('eventOnce', (code, msg)=> console.log(`England beat ${msg} by ${code} Goals`));
+// ev.once('eventOnce', (code, msg)=> console.log(`England beat ${msg} by ${code} Goals`));
 
-ev.emit('eventOnce',2,'Germany');
+// ev.emit('eventOnce',2,'Germany');
 
 
+/**               Streams                */
 
+// memory efficiency
+// time efficiency
+
+
+const http = require('http')
+const fs = require('fs')
+
+const server = http.createServer(function(req, res){
+    // fs.readFile('test.json', (err, data)=>{
+    //     res.end(data);
+    // })
+    const stream = fs.createReadStream('test.json');
+    stream.pipe(res);
+})
+
+server.listen(3000, ()=> (console.log('Panda Party started on PORT 3000')));
